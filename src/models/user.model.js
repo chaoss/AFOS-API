@@ -23,6 +23,14 @@ const User = sequelize.define('User', {
   type: DataTypes.BOOLEAN,
   defaultValue: false,
  },
+ passwordResetToken: {
+  type: DataTypes.STRING,
+  allowNull: true,
+ },
+ passwordResetExpires: {
+  type: DataTypes.DATE,
+  allowNull: true,
+ },
  created_at: {
   type: DataTypes.DATE,
   defaultValue: DataTypes.NOW,
