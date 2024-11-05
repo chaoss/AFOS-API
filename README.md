@@ -14,12 +14,13 @@ This is a monorepo that contains the backend API for the AFOS project. The backe
 - [Docker](https://www.docker.com/):  A platform for developers and sysadmins to build, ship, and run distributed applications.
 - [Jest](https://jestjs.io/): A delightful JavaScript Testing Framework with a focus on simplicity.
 
-<iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/df3c603a-4708-49c5-aadc-82f0e5bceb53" id="Z0mocPZHb6tw"></iframe>
+[![AFOS Architecture](/public/images/AFOS%20Arch%20Diagram.png)](https://dbdiagram.io/d/67299654e9daa85aca52308f)
 
 
 ## Database Diagram
 This is the database diagram for the AFOS project. The database is built using MySQL. The schema diagram below shows the tables in the database and the relationships between them.
-<iframe width="640" height="480" src='https://dbdiagram.io/e/67299654e9daa85aca52308f/6729965ee9daa85aca52316f'> </iframe>
+
+[![AFOS Database Diagram](/public/images/AFOS%20DB.png)](https://dbdiagram.io/d/67299654e9daa85aca52308f)
 
 ## How to setup project
 - Clone the repository.
