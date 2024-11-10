@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import sequelize from './configs/db.config.js';
+import requestLogger from './middlewares/logger.js';
 import logger from './configs/logger.config.js';
 
 const app = express();
@@ -8,7 +9,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(logger);
+app.use(requestLogger);
 
 // Database initialization
 sequelize

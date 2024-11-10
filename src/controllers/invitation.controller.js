@@ -1,9 +1,9 @@
-import * as invitationService from '../services/invitation.service.js';
+import invitationService from '../services/invitation.service.js';
 
 export const createInvitation = async (req, res) => {
   try {
     const { invitee_email, isSuperAdmin } = req.body;
-    const result = await invitationService.createInvitationService(
+    const result = await invitationService.createInvitation(
       req.user.id,
       invitee_email,
       isSuperAdmin
@@ -23,7 +23,7 @@ export const createInvitation = async (req, res) => {
 
 export const getInvitations = async (req, res) => {
   try {
-    const invitations = await invitationService.getInvitationsService();
+    const invitations = await invitationService.getInvitations();
 
     return res.status(200).json({
       status: 'success',
@@ -39,7 +39,7 @@ export const getInvitations = async (req, res) => {
 
 export const getInvitationById = async (req, res) => {
   try {
-    const invitation = await invitationService.getInvitationByIdService(req.params.id);
+    const invitation = await invitationService.getInvitationById(req.params.id);
 
     return res.status(200).json({
       status: 'success',

@@ -1,4 +1,4 @@
-import * as authService from '../services/auth.service.js';
+import authService from '../services/auth.service.js';
 
 export const login = async (req, res) => {
   try {
@@ -20,7 +20,7 @@ export const login = async (req, res) => {
 export const acceptInvitation = async (req, res) => {
   try {
     const { token, fullname, password } = req.body;
-    const result = await authService.acceptInvitationService(token, {
+    const result = await authService.acceptInvitation(token, {
       fullname,
       password,
     });
@@ -40,11 +40,7 @@ export const acceptInvitation = async (req, res) => {
 export const changePassword = async (req, res) => {
   try {
     const { currentPassword, newPassword } = req.body;
-    const result = await authService.changePasswordService(
-      req.user.id,
-      currentPassword,
-      newPassword
-    );
+    const result = await authService.changePassword(req.user.id, currentPassword, newPassword);
 
     return res.status(200).json({
       status: 'success',
@@ -61,7 +57,7 @@ export const changePassword = async (req, res) => {
 export const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
-    const result = await authService.forgotPasswordService(email);
+    const result = await authService.forgotPassword(email);
 
     return res.status(200).json({
       status: 'success',
@@ -78,7 +74,7 @@ export const forgotPassword = async (req, res) => {
 export const resetPassword = async (req, res) => {
   try {
     const { token, newPassword } = req.body;
-    const result = await authService.resetPasswordService(token, newPassword);
+    const result = await authService.resetPassword(token, newPassword);
 
     return res.status(200).json({
       status: 'success',

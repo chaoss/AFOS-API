@@ -1,8 +1,8 @@
-import * as userService from '../services/user.service.js';
+import userService from '../services/user.service.js';
 
 export const getUsers = async (req, res) => {
   try {
-    const users = await userService.getUsersService();
+    const users = await userService.getUsers();
     return res.status(200).json({
       status: 'success',
       data: users,
@@ -17,7 +17,7 @@ export const getUsers = async (req, res) => {
 
 export const getUserById = async (req, res) => {
   try {
-    const user = await userService.getUserByIdService(req.params.id);
+    const user = await userService.getUserById(req.params.id);
     return res.status(200).json({
       status: 'success',
       data: user,
@@ -32,7 +32,7 @@ export const getUserById = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   try {
-    const updatedUser = await userService.updateUserService(req.params.id, req.body);
+    const updatedUser = await userService.updateUser(req.params.id, req.body);
     return res.status(200).json({
       status: 'success',
       data: updatedUser,
@@ -47,7 +47,7 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
   try {
-    const result = await userService.deleteUserService(req.params.id);
+    const result = await userService.deleteUser(req.params.id);
     return res.status(200).json({
       status: 'success',
       data: result,
