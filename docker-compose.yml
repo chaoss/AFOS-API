@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  afos-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/src
+    environment:
+      - NODE_ENV=production
+      - PORT=3000 
+      - DB_HOST=mysql
+      - DB_USER=afos
+      - DB_PASSWORD=afosS3cure!Passw@rd
+      - DB_NAME=afosdb
+      - JWT_SECRET=afos-secret
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: passw@rd
+      MYSQL_DATABASE: afosdb
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
